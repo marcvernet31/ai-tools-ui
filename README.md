@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# AI Tools
+Search tool for texts using the power of AI.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Roadmap
+- YouTube text transcript
+- Text embeding generation and onboarding of books.
+- Asking questions to individual texts
+- UI login, first demo
 
 ## Available Scripts
 
