@@ -1,5 +1,7 @@
 import AWS from 'aws-sdk'; 
 
+const TRANSCRIBE_LAMBDA_NAME = "arn:aws:lambda:us-east-1:236272758067:function:YoutubeTranscript"
+
 
 export class LambdaClient {
     constructor(props) {
@@ -19,7 +21,7 @@ export class LambdaClient {
     invoke(url, fun) {
         this.lambda.invoke( 
             {
-              FunctionName: "arn:aws:lambda:us-east-1:236272758067:function:testYoutube",
+              FunctionName: TRANSCRIBE_LAMBDA_NAME,
               Payload: JSON.stringify({ url: url })
             },
             fun 

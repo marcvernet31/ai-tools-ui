@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import AWS from 'aws-sdk'; 
-
 import { LambdaClient } from './aws/lambda.js'
 
 const OutputStatus = {
@@ -9,7 +8,6 @@ const OutputStatus = {
   Empty: ''
 }
 
-const TRANSCRIBE_LAMBDA_NAME = "arn:aws:lambda:us-east-1:236272758067:function:testYoutube"
 
 function App() {
   const [url, setUrl] = useState('');
@@ -29,8 +27,10 @@ function App() {
       JSON.stringify({ url: url }),
       function(err, data) {
         if (err) console.log(err, err.stack);
-        else     {
-          setAnswer(data.Payload)
+        else {
+          setAnswer(
+            JSON.parse(data.Payload).body, 
+          )
           setStatus(OutputStatus.Answered);
         };          
       }
